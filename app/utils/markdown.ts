@@ -4,7 +4,7 @@ import type { PluggableList, Plugin } from 'unified';
 import rehypeSanitize, { defaultSchema, type Options as RehypeSanitizeOptions } from 'rehype-sanitize';
 import { SKIP, visit } from 'unist-util-visit';
 import type { UnistNode, UnistParent } from 'node_modules/unist-util-visit/lib';
-
+// 支持的标签
 export const allowedHTMLElements = [
   'a',
   'b',

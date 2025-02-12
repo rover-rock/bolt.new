@@ -22,6 +22,7 @@ export class PreviewsStore {
   async #init() {
     const webcontainer = await this.#webcontainer;
 
+    // 监听接口事件，存储preview状态和链接，放入iframe展示。Listens for port events, which are emitted when a port is opened or closed by some process.
     webcontainer.on('port', (port, type, url) => {
       let previewInfo = this.#availablePreviews.get(port);
 

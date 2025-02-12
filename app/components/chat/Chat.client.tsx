@@ -178,7 +178,7 @@ export const ChatImpl = memo(({ initialMessages, storeMessageHistory }: ChatProp
        * manually reset the input and we'd have to manually pass in file attachments. However, those
        * aren't relevant here.
        */
-      append({ role: 'user', content: `${diff}\n\n${_input}` });
+      append({ role: 'user', content: `${diff}\n\n${_input}` }); // 文件变更部分输入到gpt消息中
 
       /**
        * After sending a new message we reset all modifications since the model

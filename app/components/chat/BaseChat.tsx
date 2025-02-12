@@ -28,7 +28,7 @@ interface BaseChatProps {
 }
 
 const EXAMPLE_PROMPTS = [
-  { text: 'Build a todo app in React using Tailwind' },
+  { text: '构建一个rax mobile 页面 demo' },
   { text: 'Build a simple blog using Astro' },
   { text: 'Create a cookie consent form using Material UI' },
   { text: 'Make a space invaders game' },
@@ -88,6 +88,7 @@ export const BaseChat = React.forwardRef<HTMLDivElement, BaseChatProps>(
             >
               <ClientOnly>
                 {() => {
+                  // 左侧消息栏
                   return chatStarted ? (
                     <Messages
                       ref={messageRef}
@@ -112,7 +113,7 @@ export const BaseChat = React.forwardRef<HTMLDivElement, BaseChatProps>(
                     ref={textareaRef}
                     className={`w-full pl-4 pt-4 pr-16 focus:outline-none resize-none text-md text-bolt-elements-textPrimary placeholder-bolt-elements-textTertiary bg-transparent`}
                     onKeyDown={(event) => {
-                      if (event.key === 'Enter') {
+                      if (event.key === 'Enter') { //按下确定按钮
                         if (event.shiftKey) {
                           return;
                         }
@@ -187,7 +188,7 @@ export const BaseChat = React.forwardRef<HTMLDivElement, BaseChatProps>(
             {!chatStarted && (
               <div id="examples" className="relative w-full max-w-xl mx-auto mt-8 flex justify-center">
                 <div className="flex flex-col space-y-2 [mask-image:linear-gradient(to_bottom,black_0%,transparent_180%)] hover:[mask-image:none]">
-                  {EXAMPLE_PROMPTS.map((examplePrompt, index) => {
+                  {EXAMPLE_PROMPTS.map((examplePrompt, index) => { // 例子部分
                     return (
                       <button
                         key={index}
@@ -205,6 +206,7 @@ export const BaseChat = React.forwardRef<HTMLDivElement, BaseChatProps>(
               </div>
             )}
           </div>
+          {/* 右侧工作台 */}
           <ClientOnly>{() => <Workbench chatStarted={chatStarted} isStreaming={isStreaming} />}</ClientOnly>
         </div>
       </div>

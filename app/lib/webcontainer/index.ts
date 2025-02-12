@@ -22,6 +22,7 @@ if (!import.meta.env.SSR) {
     import.meta.hot?.data.webcontainer ??
     Promise.resolve()
       .then(() => {
+        // 启动后执行命令
         return WebContainer.boot({ workdirName: WORK_DIR_NAME });
       })
       .then((webcontainer) => {

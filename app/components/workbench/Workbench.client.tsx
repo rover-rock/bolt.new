@@ -177,7 +177,7 @@ export const Workbench = memo(({ chatStarted, isStreaming }: WorkspaceProps) => 
 interface ViewProps extends HTMLMotionProps<'div'> {
   children: JSX.Element;
 }
-
+// 包裹动画库
 const View = memo(({ children, ...props }: ViewProps) => {
   return (
     <motion.div className="absolute inset-0" transition={viewTransition} {...props}>

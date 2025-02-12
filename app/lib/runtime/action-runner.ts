@@ -83,7 +83,7 @@ export class ActionRunner {
     if (action.executed) {
       return;
     }
-
+// 异步执行，可以并行执行多个action
     this.#updateAction(actionId, { ...action, ...data.action, executed: true });
 
     this.#currentExecutionPromise = this.#currentExecutionPromise
@@ -148,7 +148,7 @@ export class ActionRunner {
 
     logger.debug(`Process terminated with code ${exitCode}`);
   }
-
+// 执行写入文件，创建文件夹操作
   async #runFileAction(action: ActionState) {
     if (action.type !== 'file') {
       unreachable('Expected file action');

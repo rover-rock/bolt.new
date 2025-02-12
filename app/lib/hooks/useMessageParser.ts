@@ -38,7 +38,7 @@ const messageParser = new StreamingMessageParser({
     },
   },
 });
-
+// 解析gpt返回的消息内容
 export function useMessageParser() {
   const [parsedMessages, setParsedMessages] = useState<{ [key: number]: string }>({});
 

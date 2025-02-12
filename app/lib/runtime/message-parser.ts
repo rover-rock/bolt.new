@@ -55,7 +55,7 @@ export class StreamingMessageParser {
   #messages = new Map<string, MessageState>();
 
   constructor(private _options: StreamingMessageParserOptions = {}) {}
-
+// 解析gpt返回的消息，提取文件位置和内容等信息，action用来执行写入文件或者执行shell命令
   parse(messageId: string, input: string) {
     let state = this.#messages.get(messageId);
 
